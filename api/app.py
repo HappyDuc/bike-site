@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS, cross_origin
 import time
 
@@ -7,7 +7,7 @@ cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
 
-@app.route("/time")  #
+@app.route("/time")
 @cross_origin()
 def get_current_time():
-    return {"time": time.time()}
+    return jsonify({"time": time.time()})

@@ -10,12 +10,18 @@ function App() {
 
   useEffect(() => {
     fetch("/time")
-      .then((response) => response.json())
-      .then((data) => {
-        setCurrentTime(data.time);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+      .then((res) => res.text())
+      .then((text) => console.log(text));
+  });
+
+  //useEffect(() => {
+  //  fetch("/time")
+  //    .then((response) => response.json())
+  //    .then((data) => {
+  //      setCurrentTime(data.time);
+  //    })
+  //    .catch((err) => console.log(err));
+  //}, []);
 
   return (
     <>
